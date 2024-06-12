@@ -1,0 +1,25 @@
+---
+ - name: get the repo contents ...
+   ansible.builtin.uri:
+     url: https://api.github.com/repos/mohamedhamdyamer/enable-iac-app01/contents
+     method: GET
+   register: output
+
+ - name: print the output ...
+   ansible.builtin.debug:
+     msg: "{{ item.download_url }}"
+   when: item.name == "index.html"
+   loop: "{{ output.json }}"
+
+ - name: remove the app from the temporary location ...
+   ansible.builtin.file:
+     path: ./tmp/index.html
+     state: absent
+
+ - name: download the app ...
+   ansible.builtin.get_url:
+     url: "{{ item.download_url }}"
+     dest: ./tmp
+   when: item.name == "index.html"
+   loop: "{{ output.json }}"
+# tasks file for fetch

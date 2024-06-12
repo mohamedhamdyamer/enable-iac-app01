@@ -1,0 +1,50 @@
+---
+ - name: replace content of index.html (1) ...
+   ansible.builtin.replace:
+     path: ./tmp/index.html
+     regexp: "Platform:"
+     replace: "Deployment Platform: Containers"
+
+ - name: replace content of index.html (2) ...
+   ansible.builtin.replace:
+     path: ./tmp/index.html
+     regexp: "Environment:"
+     replace: "Environment: Test"
+
+ - name: replace content of index.html (3) ...
+   ansible.builtin.replace:
+     path: ./tmp/index.html
+     regexp: "Version: [0-9].[0-9]"
+     replace: "Version: 1.3"
+
+ - name: increment the build number ...
+   ansible.builtin.shell:
+     cmd: ./incr_build_number.sh
+
+ - name: read the build number ...
+   ansible.builtin.shell:
+     cmd: cat ./build_number
+   register: build_number_output
+
+ - name: replace content of index.html (4) ...
+   ansible.builtin.replace:
+     path: ./tmp/index.html
+     regexp: "Build Number:"
+     replace: "Build Number: {{ build_number_output.stdout }}"
+
+ - name: replace content of index.html (5) ...
+   ansible.builtin.replace:
+     path: ./tmp/index.html
+     regexp: "Full Version: [0-9].[0-9].[0-9]"
+     replace: "Full Version: 1.3.{{ build_number_output.stdout }}"
+
+ - name: build the docker image ...
+   become: true
+   community.docker.docker_image:
+     name: myapp-ansible
+     source: build
+     build:
+       path: .
+       rm: true
+     force_source: true
+# tasks file for build

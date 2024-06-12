@@ -1,0 +1,10 @@
+---
+ - name: deploy the docker container ...
+   become: true
+   community.docker.docker_container:
+     image: myapp-ansible
+     name: myapp-ansible
+     hostname: myapp-ansible
+     published_ports:
+      - 8082:80
+# tasks file for deploy

@@ -1,0 +1,20 @@
+---
+- name: pipeline to verify, fetch, build, and deploy and app
+  hosts: all
+
+  tasks:
+  - name: verify the repo details ...
+    include_role:
+      name: verify
+
+  - name: fetch the repo ...
+    include_role: 
+      name: fetch
+
+  - name: build the app ...
+    include_role:
+      name: build
+
+  - name: deploy the app ...
+    include_role:
+      name: deploy

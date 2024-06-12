@@ -1,0 +1,23 @@
+---
+ - name:
+   ansible.builtin.uri:
+     url: https://api.github.com/repos/mohamedhamdyamer/enable-iac-app01
+     method: GET
+     #force_basic_auth: true
+     #url_username:
+     #url_password:
+   ignore_errors: true
+   register: output
+
+ - name: print results
+   ansible.builtin.debug:
+     msg: "{{ output.status }} "
+
+ - name: check results
+   ansible.builtin.debug:
+     msg: "Repo not found!"
+   when: output is failed
+
+ - meta: end_play
+   when: output is failed
+# tasks file for verify
