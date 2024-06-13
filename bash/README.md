@@ -1,9 +1,9 @@
 This is a bash script to checkout the repo, build, and deploy the app.
 
 Inputs to the script:
- - GitHub Account Name
- - Repo Name
- - sudo password --> being read from an environment variable
+ - GitHub Account Name.
+ - Repo Name.
+ - sudo password --> being read from an environment variable.
 
 Steps:
  - Verify that the supplied account and repo names are valid.
