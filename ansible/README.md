@@ -8,7 +8,7 @@ Steps:
  - Fetch the repo and downloading "index.html" into a tmp location.
  - Build the Docker image --> from an nginx image.
  - Some details were added/edited, to "index.html", while building the image (version, build number, ... etc.).
- - Deploying the container, from the image, to run a local Docker host.
+ - Deploying a container, from the image, to run a local Docker host.
 
 More Details:
  - Ansible Modues used:
