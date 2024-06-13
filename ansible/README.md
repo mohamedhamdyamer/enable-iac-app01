@@ -6,8 +6,8 @@ Inputs to the playbook:
 Steps:
  - Verify that the supplied repo URL is valid.
  - Fetch the repo and downloading "index.html" into a tmp location.
- - Build the Docker image --> from an nginx image.
- - Some details were added/edited, to "index.html", while building the image (version, build number, ... etc.).
+ - Build the Docker image --> from nginx:stable.
+ - Some details were added, to "index.html", while building the image (version, build number, ... etc.).
  - Deploying a container, from the image, to run a local Docker host.
 
 More Details:
