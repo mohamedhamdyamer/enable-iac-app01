@@ -15,7 +15,7 @@ Steps:
  - Some details were added/edited, to index.html, while building the image (version, build number, ... etc.).
  - Deploying the container, from the image, to run a local Docker host.
 
-Assumptions:
+Assumptions:\
 The script has used the following tools or packages:
  - GitHub API (gh)
  - jq
