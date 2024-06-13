@@ -11,7 +11,7 @@ Steps:
  - Some details of the repo are displayed while fetching:
     - Latest version
     - Commits
- - Build the Docker image --> using an nginx image.
+ - Build the Docker image --> from an nginx image.
  - Some details were added/edited, to index.html, while building the image (version, build number, ... etc.).
  - Deploying the container, from the image, to run a local Docker host.
 
