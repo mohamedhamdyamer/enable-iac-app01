@@ -10,7 +10,7 @@ do
   esac
 done
 
-# Verifying the supplied repo url and assigning other repo variables ...
+# Verifying the supplied account and repo names are valid
 # Repo url example --> git@github.com:mohamedhamdyamer/enable-iac-app01.git
 if [[ -z $account_name ]]; then
   echo "Missing Account Name! please provie a valid GitHub account using the -a option."
